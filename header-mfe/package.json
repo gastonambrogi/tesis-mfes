@@ -53,7 +53,11 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "single-spa": "^5.9.3",
-    "single-spa-react": "^6.0.2"
+    "single-spa-react": "^6.0.2",
+    "styled-components": "^6.1.15"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "types": "dist/gatesis-header-mfe.d.ts"
 }

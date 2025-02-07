@@ -1,3 +1,5 @@
+import Header from "./components/header/header";
+
 export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+  return <Header />;
 }
