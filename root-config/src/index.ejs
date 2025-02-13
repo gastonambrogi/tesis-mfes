@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Tesis</title>
+    <title>Root Config</title>
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';"
@@ -18,7 +18,9 @@
     <script type="injector-importmap">
       {
         "imports": {
-          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js"
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js",
+          "react": "https://esm.sh/react",
+          "react-dom": "https://esm.sh/react-dom"
         }
       }
     </script>
@@ -27,6 +29,8 @@
       href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js"
       as="module"
     />
+    <link rel="preload" href="https://esm.sh/react-dom" as="module" />
+    <link rel="preload" href="https://esm.sh/react" as="module" />
 
     <!-- Add your organization's prod import map URL to this script's src  -->
     <!-- <script type="injector-importmap" src="/importmap.json"></script> -->
@@ -35,14 +39,17 @@
     <script type="injector-importmap">
       {
         "imports": {
-          "@gatesis/root-config": "//localhost:9000/gatesis-root-config.js"
+          "@single-spa/welcome": "https://cdn.jsdelivr.net/npm/single-spa-welcome/dist/single-spa-welcome.min.js",
+          "@gatesis/root-config": "//localhost:9000/gatesis-root-config.js",
+          "@gatesis/header-mfe": "//localhost:8080/gatesis-header-mfe.js",
+          "@gatesis/header-mfe": "https://lfogbtmcmyahxpvrshih.supabase.co/storage/v1/object/public/gatesis-bucket/header-mfe/gatesis-header-mfe.js"
         }
       }
     </script>
     <% } %>
 
-    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@4.1.0/dist/import-map-overrides.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@1.1.0/lib/import-map-injector.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@2.0.1/lib/import-map-injector.js"></script>
     <style>
       *,
       *::before,

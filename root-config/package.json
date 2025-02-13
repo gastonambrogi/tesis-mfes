@@ -6,7 +6,6 @@
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
-    "prepare": "husky install",
     "build": "concurrently yarn:build:*",
     "build:webpack": "webpack --mode=production"
   },
@@ -33,11 +32,12 @@
     "webpack-cli": "^4.10.0",
     "webpack-config-single-spa": "^6.0.2",
     "webpack-dev-server": "^4.0.0",
-    "webpack-merge": "^6.0.1"
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "@types/jest": "^27.0.1",
     "@types/systemjs": "^6.1.1",
-    "single-spa": "^5.9.3"
+    "single-spa": "^5.9.3",
+    "single-spa-layout": "^1.6.0"
   }
 }

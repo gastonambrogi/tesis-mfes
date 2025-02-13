@@ -1,25 +1,20 @@
 import { registerApplication, start } from "single-spa";
+import {
+  constructApplications,
+  constructRoutes,
+  constructLayoutEngine,
+} from "single-spa-layout";
+import microfrontendLayout from "./microfrontend-layout.html";
 
-// registerApplication({
-//   name: "@gatesis/navbar",
-//   app: () =>
-//     import(
-//       /* webpackIgnore: true */ // @ts-ignore-next
-//       "@gatesis/navbar"
-//     ),
-//   activeWhen: ["/"],
-// });
-
-registerApplication({
-  name: "@gatesis/header-mfe",
-  app: () =>
-    import(
-      /* webpackIgnore: true */ // @ts-ignore-next
-      "//localhost:8080/gatesis-header-mfe.js"
-    ),
-  activeWhen: ["/"],
+const routes = constructRoutes(microfrontendLayout);
+const applications = constructApplications({
+  routes,
+  loadApp({ name }) {
+    return import(/* webpackIgnore: true */ name);
+  },
 });
+const layoutEngine = constructLayoutEngine({ routes, applications });
 
-start({
-  urlRerouteOnly: true,
-});
+applications.forEach(registerApplication);
+layoutEngine.activate();
+start();
