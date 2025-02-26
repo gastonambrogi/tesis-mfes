@@ -10,6 +10,7 @@ import {
 } from "@carbon/react";
 import { Search, Notification, UserAvatar } from "@carbon/icons-react";
 import CompanyLogo from "./company-logo/company-logo";
+import { navigateToUrl } from "single-spa";
 
 const CarbonHeader: React.FC = () => {
   return (
@@ -19,10 +20,34 @@ const CarbonHeader: React.FC = () => {
         <CompanyLogo />
       </HeaderName>
       <HeaderNavigation aria-label="Carbon Header Navigation">
-        <HeaderMenuItem href="/products">Products</HeaderMenuItem>
-        <HeaderMenuItem href="/services">Services</HeaderMenuItem>
-        <HeaderMenuItem href="/about">About</HeaderMenuItem>
-        <HeaderMenuItem href="/contact">Contact</HeaderMenuItem>
+        <HeaderMenuItem
+          onClick={() => {
+            navigateToUrl("/products");
+          }}
+        >
+          Products
+        </HeaderMenuItem>
+        <HeaderMenuItem
+          onClick={() => {
+            navigateToUrl("/services");
+          }}
+        >
+          Services
+        </HeaderMenuItem>
+        <HeaderMenuItem
+          onClick={() => {
+            navigateToUrl("/about");
+          }}
+        >
+          About
+        </HeaderMenuItem>
+        <HeaderMenuItem
+          onClick={() => {
+            navigateToUrl("/contact");
+          }}
+        >
+          Contact
+        </HeaderMenuItem>
       </HeaderNavigation>
       <HeaderGlobalBar>
         <HeaderGlobalAction aria-label="Search" onClick={() => {}}>
