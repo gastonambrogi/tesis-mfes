@@ -7,10 +7,22 @@
       ></application> -->
       <application name="@gatesis/header-mfe-carbon"></application>
     </nav>
-    <route default>
+    <!-- <route default>
       <div style="margin-top: 4rem">
         <application name="@single-spa/welcome"></application>
       </div>
+    </route> -->
+    <route path="products" default>
+      <application name="@gatesis/products-mfe"></application>
+    </route>
+    <route path="services">
+      <application name="@gatesis/services-mfe"></application>
+    </route>
+    <route path="about">
+      <application name="@gatesis/about-mfe"></application>
+    </route>
+    <route path="contact">
+      <application name="@gatesis/contact-mfe"></application>
     </route>
   </main>
 </single-spa-router>
